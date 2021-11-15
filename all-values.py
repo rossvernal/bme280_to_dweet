@@ -16,12 +16,12 @@ bme280 = BME280(i2c_dev=bus)
 
 while True:
     temperature = bme280.get_temperature()
-    temperaturePrint = "{:05.2f}*C".format(temperature)
+    temperaturePrint = "{:05.2f}°C".format(temperature)
     pressure = bme280.get_pressure()
-    pressurePrint =  "{:05.2f}hPa".format(pressure)
+    pressurePrint =  "{:05.2f}mb".format(pressure)
     humidity = bme280.get_humidity()
     humidityPrint = "{:05.2f}%".format(humidity)
-    print('{:05.2f}*C {:05.2f}hPa {:05.2f}%'.format(temperature, pressure, humidity))
+    print('{:05.2f}°C {:05.2f}mb {:05.2f}%'.format(temperature, pressure, humidity))
 
     dweepy.dweet_for('ingeniuus_ross_room', {'temperature': temperaturePrint, 'pressure': pressurePrint, 'humidity': humidityPrint })
     {
